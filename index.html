@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <meta charset="UTF-8">
+        <title>Validacao PEEM - chatGPT</title>
+        <link rel="stylesheet" type="text/css" href="style/style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+  <div class="modal" id="modal">
+      <div class="modal-head">Mensagem</div>
+      <div class="modal-msg" id="modal-msg">
+      </div>
+      <div id="container-modal-btn">
+        <div id="btn-cancelar" class="button">Cancelar</div>
+      </div>
+  </div>
+
+  <div class="modal" id="modal-confirm">
+      <div class="modal-head">Mensagem</div>
+      <div class="modal-msg" id="modal-msg-confirm">
+      </div>
+      <div class="btn-confirm-container" id="container-modal">
+          <div id="btn-confirm" class="button btn-confirm">Confirmar</div>
+          <div id="btn-noconfirm" class="button btn-confirm">Cancelar</div>
+      </div>
+  </div>
+
+  <div id="page">
+      <div id="btn-decline" class="button">Declinar</div>
+
+      <div id="title-page">Avaliação de Mensagens Melhoradas emitidas por LLM</div>
+      <div id="data-avaliator">
+        Olá <span id="user-name"> Luis Araujo </span>, obrigado por fazer parte desta
+          pesquisa. Caso tenha dúvida sobre o procedimento de avaliação, consulte o <a target="_blank" href="guia/v1.pdf">guia</a>
+      </div>
+      <div id='main-prompt' class="prompt">
+        <div>
+            <span id="head-prompt" class="head-prompt" title='O texto a seguir corresponde ao prompt gerado e enviado ao chatGPT'> </span>
+            <span id="main-actual-prompt" class="main-prompt" > </span>
+            <span class="head-prompt" title='O texto a seguir corresponde à resposta do chatGPT ao prompt'><b>RESPOSTA DO CHATGPT</b></span>
+            <span id="response-prompt" class="response-prompt"> </span>
+            <span id="copy" class="copy" ref="1">copy <span class="icon"></span></span>
+            </div>
+        </div>
+
+        <div id="buttons-control">
+            <div id="btn-prior" class="button">Anterior</div>
+            <div id="btn-next" class="button">Próximo</div>
+        </div>
+
+        <div id="title-form">Avaliação</div>
+        <div id="state-save"></div>
+
+        <div id="form-validations">
+            <div class="options-form">
+                <select q_option="1" class="quest" id="quest1">
+                    <option value=""> </option>
+                    <option value="3">NA</option>
+                    <option value="1">SIM</option>
+                    <option value="2">NÃO</option>
+                </select>
+                <span id="text-quest1"><b>Q1 - Explicação (E)</b>: Fornece uma explicação de erro?</span>
+            </div>
+
+            <div class="options-form">
+                <select q_option="2"  class="quest" id="quest2">
+                    <option value=""> </option>
+                    <option value="3">NA</option>
+                    <option value="1">SIM</option>
+                    <option value="2">NÃO</option>
+                </select>
+                <span id="text-quest2"><b>Q2 - Explicação Correta (EC)</b>: Fornece uma explicação correta do erro?</span>
+            </div>
+
+            <div class="options-form">
+                <select q_option="3"  class="quest" id="quest3">
+                    <option value=""> </option>
+                    <option value="3">NA</option>
+                    <option value="1">SIM</option>
+                    <option value="2">NÃO</option>
+                </select>
+                <span id="text-quest3"><b>Q3 – Solução (S)</b>: Fornece um exemplo de código como exemplo de solução?</span>
+            </div>
+
+            <div class="options-form">
+                <select q_option="4"  class="quest" id="quest4">
+                    <option value=""> </option>
+                    <option value="3">NA</option>
+                    <option value="1">SIM</option>
+                    <option value="2">NÃO</option>
+                </select>
+                <span id="text-quest4"><b>Q4 - Solução Correta (SC)</b>: Fornece um exemplo de código que corrige o 	problema apresentado?</span>
+            </div>
+
+            <div class="options-form">
+                <select q_option="5"  class="quest" id="quest5">
+                    <option value=""> </option>
+                    <option value="3">NA</option>
+                    <option value="1">SIM</option>
+                    <option value="2">NÃO</option>
+                </select>
+                <span id="text-quest5"><b>Q5 – Solução Explícita (SE)</b>: A solução propõem resolver apenas o 	problema explícito (erro que gerou a mensagem)? </span>
+            </div>
+
+
+            <div class="options-form">
+                <select q_option="6"  class="quest" id="quest6">
+                    <option value=""> </option>
+                    <option value="3">NA</option>
+                    <option value="1">SIM</option>
+                    <option value="2">NÃO</option>
+                </select>
+                <span id="text-quest6"><b>Q6 – Múltiplos Erros (ME)</b>: Gera um código com erro, devido a existência 	de múltiplos erros no código?</span>
+            </div>
+
+
+        </div>
+
+        <div class="container-button">
+            <div id="btn-save" class="button btn-save">
+              Salvar
+            </div>
+            <div id="btn-clean" class="button">
+                Limpar
+            </div>
+        </div>
+
+
+        <div id="footer">
+            Página desenvolvida para a pesquisa de Doutorado de Luis Gustavo Araujo (PGCC/UFBA)
+        </div>
+      </div>
+
+  <script src="scripts/jquery-3.4.1.min.js"></script>
+  <script src="scripts/validation-page.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,460 @@
+@font-face {
+    font-family: Roboto;
+    src: url('../font/Roboto-Regular.ttf');
+    font-weight: normal;
+}
+@font-face {
+    font-family: Roboto;
+    src: url('../font/Roboto-Bold.ttf');
+    font-weight: bold;
+}
+
+body{
+    width: 100%;
+    overflow-x: hidden;
+}
+.question{
+    margin-left: 10px;
+}
+.question-description{
+    font-weight: bold;
+    font-family: "Roboto";
+}
+
+.disable{
+    pointer-events: none;
+    background-color: #b8c4b8 !important;
+}
+
+.modal{
+    display: none;
+    width: 600px;
+    height: 200px;
+    background-color: #fff !important;
+    border-radius: 10px;
+    border: 1px solid #b8c4b8;
+    position: absolute;
+    left: calc( 50% - 300px);
+    text-align: center;
+    font-family: Roboto;
+    padding: 10px;
+    z-index: 99;
+}
+
+.modal-head{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.modal-msg{
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+#btn-cancelar{
+    margin-left: calc(50% - 50px);
+    margin-top: 20px;
+}
+
+.btn-confirm-container{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-confirm{
+    margin-left: 10px;
+    margin-top: 40px;
+    align-content: center;
+
+}
+
+#page{
+    width: 100%;
+}
+
+.page-blur{
+    filter: blur(2px);
+}
+
+.prompt{
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+
+}
+
+.head-prompt{
+    width: calc(100% - 10px);
+    background-color: #167491;
+    border-radius: 5px;
+    color: #ffffff;
+    display: block;
+    padding: 5px;
+}
+
+.main-prompt{
+    width: calc(100% - 30px);
+    background-color: #2d312d;
+    border-radius: 5px;
+    color:  #fff;
+    display: block;
+    padding: 15px;
+    font-family: "Courier New";
+    margin-top: 5px;
+    overflow-wrap: break-word;
+    margin-bottom: 5px;
+}
+
+.response-prompt{
+    overflow-wrap: break-word;
+}
+.copy{
+    display: block;
+    height: 35px;
+    margin-top: 10px;
+}
+.copy:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.copy .icon{
+    background-image: url("../images/content_copy.png");
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    float: left;
+
+}
+
+#data-avaliator{
+    border-radius: 10px;
+    background-color: #b8c4b8;
+    font-family: Arial;
+    width: calc( 100% - 20px);
+    margin-left: 10px;
+    padding: 5px;
+    color: #494f4a;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.icon-button{
+    min-width: 80px;
+    height: 20px;
+    padding: 10px;
+    font-family: "Roboto";
+    font-size: 10px;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: #3289b6;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: inline;
+}
+
+.icon-button:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+.icon-trash{
+    background-image: url("../images/icons8-trash-30.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: crimson;
+}
+
+.button{
+    min-width: 80px;
+    height: 20px;
+    float: left;
+    padding: 10px;
+    font-family: "Roboto";
+    font-size: 20px;
+    border-radius: 5px;
+    margin-left: 10px;
+    background-color: #3289b6;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: #747a74;
+}
+#buttons-control{
+    width: 100%;
+    height: 50px;
+}
+#form-validations{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Roboto";
+}
+
+.quest{
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+select{
+    background: none;
+    background-color: rgb(127, 161, 175);
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+select:focus{
+    outline: 3px solid #3289b6;
+}
+select option {
+    margin: 40px;
+    color: #fff;
+}
+
+.options-form{
+    font-weight: normal;
+    margin-top: 5px;
+}
+
+#state-save{
+    font-family: "Roboto";
+    color: #747a74;
+    margin-left: 10px;
+}
+.btn-save{
+    background-color: chartreuse;
+    color: #3b6c09;
+}
+
+#btn-clean, #btn-save{
+    margin: 10px 10px 10px;
+}
+#btn-decline{
+    background-color: crimson;
+    font-size: 15px;
+    height: 15px;
+}
+#title-form{
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+#title-page{
+    font-family: "Roboto";
+    font-weight: bold;
+    font-size: 30px;
+    margin-left: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+body{
+    margin: 0px;
+}
+#footer{
+    background-color: #b8c4b8;
+    width: calc(100% - 10px);
+    height: 30px;
+    text-align: center;
+    padding: 5px;
+    color: #494f4a;
+    font-family: Arial;
+}
+.container-button{
+    width: 100%;
+    height: 70px;
+}
+
+.open-quest{
+    width: 1200px;
+    height: 100px;
+    background-color: white !important;
+    resize: none;
+    display: block;
+    outline: none;
+    font-size: 20px;
+}
+
+#container-button-avaliator{
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 50px;
+}
+#container-avaliator{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+#container-avaliator input{
+    border: 1px solid #9ba29b;
+    border-radius: 5px;
+    width: 400px;
+    font-size: 20px;
+    margin-top: 10px;
+    outline: none;
+    padding: 2px;
+}
+
+.head{
+    font-family: Roboto;
+    color: #b8c4b8;
+    background-color: #167491;
+    width: 100%;
+    margin: 0px;
+    font-size: x-large;
+    font-weight: bold;
+    padding: 5px;
+}
+
+.msg-sucess{
+    color: #3b6c09;
+}
+
+.msg-error{
+    color: crimson;
+}
+
+#container-list-avaliator{
+    width: 100%;
+    margin-top: 30px;
+}
+
+#container-list-avaliator .avaliator{
+    font-family: Roboto;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+#container-list-avaliator .head{
+    margin-top: 30px;
+    opacity: 0.7;
+}
+
+
+.miniprompt{
+    width: 30px;
+    height: 20px;
+    padding: 5px;
+    background-color: #3289b6;
+    border-radius: 5px;
+    border: 1px solid #167491;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-left: 10px;
+    float: left;
+}
+.miniprompt.actual{
+    background-color: darkorange;
+    border: #8c560e;
+}
+
+.miniprompt:hover{
+    background-color: #59a9d3;
+    cursor: pointer;
+}
+
+.miniprompt.actual:hover{
+    background-color: #cc914a;
+    border: #d38e39;
+}
+
+
+.container-miniprompt{
+    height: 40px;
+    width: 100%;
+}
+
+.avaliation{
+    margin-left: 10px;
+    font-family: "Roboto";
+}
+
+.head-avaliation{
+    font-weight: bold;
+    background-color: #3289b6;
+    width: calc(100% - 20px);
+    color: #fff;
+    text-indent: 10px;
+}
+.head-avaliator{
+    margin-left: 5px;
+}
+
+.container-question{
+    border: 1px solid #2d312d;
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.head-question{
+    border-bottom: 1px solid #2d312d;
+    width: 100%;
+    height: 15px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.head-question{
+    border-bottom: 2px solid #2d312d;
+    width: 100%;
+    height: 15px;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 5px 5px 0px 0px;
+}
+
+.value-question{
+    width: 100%;
+    height: 29px;
+    text-align: center;
+    border-radius: 0px 0px 4px 4px;
+    font-weight: bold;
+    padding-top: 5px;
+}
+.SIM-value{
+    background-color: #76d913;
+    color: #427a0a;
+}
+
+.NAO-value{
+    background-color: #ee4747;
+    color: #fff;
+}
+
+.NA-value{
+    background-color: #aba4a4;
+    color: #333;
+}
+
+.container-avaliators {
+    width: 100%;
+    height: 90px;
+}
+
+.open-question:hover{
+    cursor: pointer;
+    background-color: #d7e1d7;
+}
+
+.declined{
+    text-decoration: line-through;
+}
