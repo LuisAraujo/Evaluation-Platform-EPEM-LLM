@@ -3,6 +3,12 @@
 
 $id = $_POST["id"];
 $json = '{"id": "'.$id.'",';
+
+
+$query = "SELECT token FROM avaliador WHERE id = ".$id;
+$result = $mysqli->query($query);
+$row = $result->fetch_array(MYSQLI_ASSOC);
+$json .= '"token": "'.$row['token'].'",';
 $json .= '"data": [';
 
 $query = "SELECT * FROM atribuicao WHERE avaliador_id = $id ORDER BY prompts_id";

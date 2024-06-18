@@ -7,7 +7,7 @@ $query = "SELECT prompts_id FROM atribuicao WHERE avaliador_id = '$avaliador' AN
 $result = $mysqli->query($query);
 if($result) {
     $row = $result->fetch_array(MYSQLI_ASSOC);
-    echo $row['prompts_id'];
+    echo $row['prompts_id'];;
 }else {
     echo "error";
 }

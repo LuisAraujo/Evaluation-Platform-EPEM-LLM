@@ -28,7 +28,7 @@ function updateListAvaliator() {
                     var ref = data[i].ref;
                     var token = data[i].token;
                     var name = data[i].name;
-                    var url = "https://peefonline.com/avaliacao/?avaliator=" + ref + "&token=" + token;
+                    var url = "http://localhost:8888/Plataforma-de-Avaliacao-EPEM-LLM/?avaliator=" + ref + "&token=" + token;
                     $("#container-list-avaliator").append('<div class="avaliator" id="avaliator-'+ (i+1)+'" url="' + url + '">' + (i+1) + ' - <a href="atribuating.html?id='+ref+'" target="_blank" > ' + name + ' </a> (' + url + ')  <span class = "copy" ref = "'+ (i+1) +'" > copy <span class = "icon"> </span></span></div>')
 
                 }

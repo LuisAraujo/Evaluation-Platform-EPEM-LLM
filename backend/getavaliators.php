@@ -1,7 +1,7 @@
 <?php
 @include "conectdb.php";
 
-$query = "SELECT id as ref, nome as name, token, declinou FROM avaliador WHERE 1";
+$query = "SELECT id as ref, nome as name, token, declinou FROM avaliador WHERE 1 ORDER BY nome";
 $result = $mysqli->query($query);
 $array =[];
 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {

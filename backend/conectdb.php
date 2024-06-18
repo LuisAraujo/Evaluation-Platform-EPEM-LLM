@@ -8,8 +8,8 @@ $databasename = "peefon73_aval_llm";
 /**/
 $host = "localhost";
 $user="root";
-$password="";
-$databasename = "validacao_llm";
+$password="root";
+$databasename = "peefon73_aval_llm";
 
 $mysqli = new mysqli($host,$user,$password,$databasename);
 $mysqli->set_charset("utf8");

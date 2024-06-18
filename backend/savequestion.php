@@ -12,9 +12,9 @@ $result = $mysqli->query($query);
 
 if($result->num_rows == 0) {
     if($type == "closed")
-        $query = "INSERT INTO avaliacao(id, avaliador_id, prompt_id, questoes_id, alternativas_id) VALUES('', '$avaliador','$prompt', '$questao', '$alternativa')";
+        $query = "INSERT INTO avaliacao(id, avaliador_id, prompt_id, questoes_id, alternativas_id) VALUES(null, '$avaliador','$prompt', '$questao', '$alternativa')";
     else
-        $query = "INSERT INTO avaliacao(id, avaliador_id, prompt_id, questoes_id, resposta_aberta) VALUES('', '$avaliador','$prompt', '$questao', '$alternativa')";
+        $query = "INSERT INTO avaliacao(id, avaliador_id, prompt_id, questoes_id, resposta_aberta) VALUES(null, '$avaliador','$prompt', '$questao', '$alternativa')";
 
     $result = $mysqli->query($query);
 }else{
@@ -28,4 +28,4 @@ if($result->num_rows == 0) {
 if($result)
     echo "ok";
 else
-    echo "error";
+    echo "erro" ;

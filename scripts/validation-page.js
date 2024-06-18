@@ -3,6 +3,7 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 var avaliator = urlParams.get('avaliator');
 var token = urlParams.get('token');
+var prompt = urlParams.get('prompt');
 
 //array questions (idprompt)
 var questions = [];
@@ -49,6 +50,7 @@ function main(json){
 
 //Get user data
 function getUser(id, token){
+ 
     $.post( "backend/getuser.php",{id:id, token:token}).done(
         function (data){
 
@@ -106,13 +108,20 @@ function getLastPrompt(callback){
             if(data == "")
                 last_prompt = 0;
             else
-                last_prompt = parseInt(data);
+                last_prompt = data;//parseInt(data);
 
             console.log(last_prompt);
 
             setActualPrompt();
             callback();
         });
+};
+
+//get data prompt in database
+function getLastPromptById(id, callback){
+    last_prompt = id;
+    setActualPrompt();
+    callback();
 };
 
 //setiing actual prompt when get last prompt data
@@ -124,6 +133,8 @@ function  setActualPrompt(){
         }
     }
 }
+
+
 
 //que text of questions
 function getQuestions(){
@@ -193,25 +204,34 @@ function getMyQuestions(id){
         {id:id}).done(
         function (data){
             data = JSON.parse(data);
+            console.log(data);
             max_question = data.length-1;
             for(var i= 0; i < data.length; i++){
                 questions.push(data[i]);
             };
+            console.log(questions);
+            if((prompt == undefined) || (prompt == "")){
+                getLastPrompt( function () {
+                    showQuestion();
+                });
+            }else{
+                getLastPromptById(prompt, function () {
+                    showQuestion();
+                });
 
-            getLastPrompt( function () {
-                showQuestion();
-            });
+            }
         });
 }
 
 //show prompt and gpt response
 function showQuestion(){
 
-    printed_question = all_questions[ questions[actual_question] ];
-
+    printed_question = all_questions[ questions[actual_question] -1 ];
+   
     $("#head-prompt").html("PROMPT "+questions[actual_question]+" - STUD: "+printed_question.student+" PROJ: "+printed_question.project+" COMP: "+printed_question.compilation);
     textprompt = printed_question.prompt.replace(/\n/g, '<br>');
     textprompt = textprompt.replace(/ /g, '&nbsp;');
+    console.log(printed_question);
 
     $("#main-actual-prompt").html(textprompt);
     textgpt = printed_question.chatgptresponse.replace(/\n/g, '<br>\n');
@@ -256,7 +276,11 @@ function saveOption(q_option, q_value, type){
                     $("#btn-save").removeClass("disable");
                     showMsgSaveState("no-salved")
                 }
-            });
+            }).fail(
+                function(data){
+                    console.log(data);
+                }
+            );
 }
 
 //get data question in database and print questions

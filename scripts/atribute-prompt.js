@@ -18,6 +18,7 @@ function atribuingPrompt(){
                         $("#container-list-avaliator").append('<div class="avaliator" id="avaliator-'+ (i+1)+'" > ' + name + ' </div>');
 
                     $("#container-list-avaliator").append('<div id="container-mp-'+ref+'" class="container-miniprompt"></div>  ');
+                   
                     $.post( "backend/getpromptsbyavaliator.php",
                         {id:ref} )
                         .done(function (data){
@@ -26,17 +27,31 @@ function atribuingPrompt(){
 
                                 element="";
                                 for(let j = 0; j < data.data.length; j++) {
+                                    if(j%21==0){
+                                        if(j!=0)
+                                            element += "</div>";
+                                        element+="<div class='subcontainermp'>"
+                                    }
                                     if(data.data[j].actual=="1")
-                                        element += '<div class="miniprompt actual" id="prompt-' + (data.data[j].atribuate) + '" > ' + data.data[j].prompt + ' </div>';
+                                        element += '<div link="prompt='+data.data[j].prompt+'&token='+data.token+'&avaliator='+data.id+'" class="miniprompt actual" id="prompt-' + (data.data[j].atribuate) + '" > ' + data.data[j].prompt + ' </div>';
                                     else
-                                        element += '<div class="miniprompt" id="prompt-' + (data.data[j].atribuate) + '" > ' + data.data[j].prompt + ' </div>';
+                                        element += '<div link="prompt='+data.data[j].prompt+'&token='+data.token+'&avaliator='+data.id+'" class="miniprompt" id="prompt-' + (data.data[j].atribuate) + '" > ' + data.data[j].prompt + ' </div>';
 
                                 }
+                               
                                 $("#container-mp-"+data.id).append(element);
-                        });
+                                
+                                $(".miniprompt").click(function(){
+                                    open("http://localhost:8888/Plataforma-de-Avaliacao-EPEM-LLM/?"+ $(this).attr("link") );  
+                                });
+
+                            });
 
                     $("#avaliators").append('<option value="'+ref+'"> ' + name + ' </option>');
                 }
+
+
+               
             });
 }
 $("#btn-atribuir").click(function (){
